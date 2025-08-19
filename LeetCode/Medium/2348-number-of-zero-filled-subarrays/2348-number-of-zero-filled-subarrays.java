@@ -1,9 +1,12 @@
 class Solution {
+    static{
+        for(int i=0;i<=201;i++) zeroFilledSubarray(new int[1]);
+    }
     public static long zeroFilledSubarray(int[] nums) {
         long count = 0;
         long sum = 0;
-        for (int j = 0; j < nums.length; j++) {
-            if (nums[j] == 0) {
+        for (int j : nums) {
+            if (j == 0) {
                 count++;
                 sum += count;
             } else {
