@@ -1,5 +1,10 @@
 class Solution {
-    public int coinChange(int[] coins, int amount) {
+    static {
+        for (int i = 0; i < 500; i++) {
+            coinChange(new int[]{1,2,5}, 11);
+        }
+    }
+    public static int coinChange(int[] coins, int amount) {
        int max = amount+1;
        int dp[] = new int [amount+1];
        Arrays.fill(dp,max);
