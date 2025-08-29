@@ -4,6 +4,7 @@ class Solution {
         for(int num: nums){
             hm.put(num, hm.getOrDefault(num, 0)+1);
         }
+
         int n = nums.length/3;
         ArrayList <Integer> list = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
