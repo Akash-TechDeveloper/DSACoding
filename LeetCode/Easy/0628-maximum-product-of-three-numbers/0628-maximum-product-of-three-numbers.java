@@ -1,12 +1,9 @@
-import java.util.Arrays;
-
 class Solution {
     public int maximumProduct(int[] nums) {
+        int n = nums.length;
         Arrays.sort(nums);
-        
-        int product1 = nums[0] * nums[1] * nums[nums.length - 1]; 
-        int product2 = nums[nums.length - 1] * nums[nums.length - 2] * nums[nums.length - 3]; 
-    
-        return Math.max(product1, product2);
+        int max1 = nums[n - 1] * nums[n - 2] * nums[n - 3];
+        int max2 = nums[0] * nums[1] * nums[n - 1];
+        return Math.max(max1, max2);
     }
 }
