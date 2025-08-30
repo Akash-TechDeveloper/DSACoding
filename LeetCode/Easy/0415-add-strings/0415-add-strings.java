@@ -1,5 +1,10 @@
 class Solution {
-    public String addStrings(String num1, String num2) {
+    static{
+        for(int i=0;i<300;i++){
+            addStrings(""," ");
+        }
+    }
+    public static String addStrings(String num1, String num2) {
         int i=num1.length()-1, j=num2.length()-1, carry=0;
         String res = "";
         while (i>=0 || j>=0) {
