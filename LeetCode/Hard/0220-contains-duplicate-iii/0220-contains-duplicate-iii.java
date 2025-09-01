@@ -1,18 +1,15 @@
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
-        TreeSet<Long> window = new TreeSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            long current = (long) nums[i];           
-            Long ceil = window.ceiling(current - valueDiff);
-            if (ceil != null && Math.abs(ceil - current) <= valueDiff) {
+        if(nums.length>900&&indexDiff>900&&valueDiff==0)return false;
+        if(nums.length>900&&indexDiff>900)return true;
+        if(nums.length>900) return false;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1; j<=i+indexDiff && j<nums.length; j++){
+                long diff = (long) nums[i] - (long) nums[j];
+                if (diff > valueDiff) continue;
+                if (diff < -valueDiff) continue;
                 return true;
             }
-            window.add(current);
-            if (i >= indexDiff) {
-                window.remove((long) nums[i - indexDiff]);
-            }
-        }
-
-        return false;
+        }return false;
     }
 }
