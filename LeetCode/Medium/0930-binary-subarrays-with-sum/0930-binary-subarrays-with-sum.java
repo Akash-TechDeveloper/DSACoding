@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
         int n = nums.length;
