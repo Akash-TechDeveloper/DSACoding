@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/contains-duplicate-iii">220. Contains Duplicate III</a></h2><h3>Hard</h3><hr><p>You are given an integer array <code>nums</code> and two integers <code>indexDiff</code> and <code>valueDiff</code>.</p>
+<h2><a href="https://leetcode.com/problems/contains-duplicate-iii/">220. Contains Duplicate III</a></h2><h3>Hard</h3><hr><p>You are given an integer array <code>nums</code> and two integers <code>indexDiff</code> and <code>valueDiff</code>.</p>
 
 <p>Find a pair of indices <code>(i, j)</code> such that:</p>
 
