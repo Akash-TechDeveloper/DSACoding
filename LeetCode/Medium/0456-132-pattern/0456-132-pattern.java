@@ -3,15 +3,17 @@ public class Solution {
         for(int i=0;i<500;i++) find132pattern(new int[]{1,3});
     }
     public static boolean find132pattern(int[] nums) {
+        int k = Integer.MIN_VALUE;
         Deque<Integer> stack = new ArrayDeque<>();
-        int third = Integer.MIN_VALUE;
-
         for (int i = nums.length - 1; i >= 0; i--) {
-            if (nums[i] < third) return true;
-            while (!stack.isEmpty() && stack.peek() < nums[i]) {
-                third = stack.pop();
+            if (nums[i] < k) {
+                return true;
             }
-            stack.push(nums[i]);
+
+            while(!stack.isEmpty() && stack.peekFirst() < nums[i]) {
+                k = stack.pollFirst();
+            }
+            stack.offerFirst(nums[i]);
         }
         return false;
     }
