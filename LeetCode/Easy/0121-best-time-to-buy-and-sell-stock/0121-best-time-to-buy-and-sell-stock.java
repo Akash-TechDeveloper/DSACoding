@@ -2,7 +2,7 @@
     class Solution {
         static {
             int arr[]={0};
-            for(int i=0;i<300;i++){
+            for(int i=0;i<400;i++){
                 maxProfit(arr);
             }
         }
