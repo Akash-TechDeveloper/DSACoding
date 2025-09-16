@@ -1,6 +1,6 @@
 class Solution {
     public List<Integer> replaceNonCoprimes(int[] nums) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
          for (int num : nums) {
             int current = num;
             while (!stack.isEmpty()) {
@@ -15,7 +15,8 @@ class Solution {
 
         List<Integer> list= new ArrayList<>();
         for(int x : stack) list.add(x);
-        return list;
+         Collections.reverse(list);
+         return list;
     }
     private int gcd(int n,int m){
         if(n<m) return gcd(m,n);
