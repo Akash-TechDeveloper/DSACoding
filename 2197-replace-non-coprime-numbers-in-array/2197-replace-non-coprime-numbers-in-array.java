@@ -1,6 +1,6 @@
 class Solution {
     public List<Integer> replaceNonCoprimes(int[] nums) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stack = new LinkedList<>();
          for (int num : nums) {
             int current = num;
             while (!stack.isEmpty()) {
