@@ -1,13 +1,13 @@
 class Solution {
     public List<Integer> replaceNonCoprimes(int[] nums) {
-        Deque<Integer> stack = new LinkedList<>();
+        Deque<Integer> stack = new ArrayDeque<>();
          for (int num : nums) {
             int current = num;
             while (!stack.isEmpty()) {
                 int top = stack.peek();
                 int g = gcd(top, current);
                 if (g == 1) break;
-                current = lcm(stack.pop(), current, g);
+                current = (int)((long)stack.pop()*current/ g);
             }
 
             stack.push(current);
@@ -23,8 +23,5 @@ class Solution {
         if(m==0) return n;
         return gcd(m,n%m);
     } 
-    private int lcm(int n,int m,int x){
-        return (int)((long)n * m / x);
-
-    }
+   
 }
