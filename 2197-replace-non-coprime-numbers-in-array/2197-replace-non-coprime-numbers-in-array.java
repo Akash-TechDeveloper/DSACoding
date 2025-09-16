@@ -1,0 +1,29 @@
+class Solution {
+    public List<Integer> replaceNonCoprimes(int[] nums) {
+        Stack<Integer> stack = new Stack<>();
+         for (int num : nums) {
+            int current = num;
+            while (!stack.isEmpty()) {
+                int top = stack.peek();
+                int g = gcd(top, current);
+                if (g == 1) break;
+                current = lcm(stack.pop(), current, g);
+            }
+
+            stack.push(current);
+        }
+
+        List<Integer> list= new ArrayList<>();
+        for(int x : stack) list.add(x);
+        return list;
+    }
+    private int gcd(int n,int m){
+        if(n<m) return gcd(m,n);
+        if(m==0) return n;
+        return gcd(m,n%m);
+    } 
+    private int lcm(int n,int m,int x){
+        return (int)((long)n * m / x);
+
+    }
+}
