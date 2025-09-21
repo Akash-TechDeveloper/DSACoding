@@ -3,26 +3,18 @@ public class Solution {
         for(int i=0;i<500;i++) find132pattern(new int[]{1,3});
     }
     public static boolean find132pattern(int[] nums) {
-        int length = nums.length;
-        
-        if (length < 3)
-            return false;
-
-        Deque<Integer> decreasingStack = new ArrayDeque<>(length);
-
-        int maxThirdElement = Integer.MIN_VALUE;
-
-        for (int i = length - 1; i >= 0; i--) {
-            int currentNumber = nums[i];
-
-            if (currentNumber < maxThirdElement) return true;
-              
-            while (!decreasingStack.isEmpty() && decreasingStack.peek() < currentNumber) {
-                maxThirdElement = decreasingStack.pop();
+        int k = Integer.MIN_VALUE;
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] < k) {
+                return true;
             }
-            decreasingStack.push(currentNumber);
-        }
 
+            while(!stack.isEmpty() && stack.peekFirst() < nums[i]) {
+                k = stack.pollFirst();
+            }
+            stack.offerFirst(nums[i]);
+        }
         return false;
     }
 }
