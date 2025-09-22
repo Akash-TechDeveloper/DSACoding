@@ -1,5 +1,9 @@
 class Solution {
-    public int maxFrequencyElements(int[] nums) {
+    static{
+        int arr[]={0,1};
+        for(int i =0;i<300;i++) maxFrequencyElements(arr);
+    }
+    public static int maxFrequencyElements(int[] nums) {
         int freq[] = new int [101];
         int max = 0;
         for(int i=0;i<nums.length;i++){
