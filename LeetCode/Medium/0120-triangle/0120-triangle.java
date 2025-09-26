@@ -1,13 +1,13 @@
 class Solution {
     Integer dp[][];
+    int n;
     public int minimumTotal(List<List<Integer>> triangle) {
-        int n = triangle.size();
+         n = triangle.size();
         dp = new Integer[n][n];
         return solve(0, 0, triangle);
     }
     
     public int solve(int i, int j, List<List<Integer>> triangle) {
-        int n = triangle.size();
         if (i == n - 1) {
             return triangle.get(i).get(j);
         }
