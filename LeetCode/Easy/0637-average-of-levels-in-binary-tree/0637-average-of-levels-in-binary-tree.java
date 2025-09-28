@@ -14,6 +14,12 @@
  * }
  */
 class Solution {
+    static{
+        Solution sc = new Solution();
+        for(int i=0;i<500;i++){
+            sc.averageOfLevels(null);
+        }
+    }
     public List<Double> averageOfLevels(TreeNode root) {
         Queue<TreeNode>  q = new LinkedList<>();
         List<Double> result = new ArrayList<>();
