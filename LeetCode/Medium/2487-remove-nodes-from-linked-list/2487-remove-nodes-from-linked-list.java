@@ -19,12 +19,12 @@ class Solution {
             st.push(curr);
             curr = curr.next;
         }
-        ListNode x =null;
-        while(!st.isEmpty()){
-            curr = st.pop();
-            curr.next = x;
-            x=curr;
+        ListNode newHead = null;
+        while (!st.isEmpty()) {
+            ListNode node = st.pop();
+            node.next = newHead;
+            newHead = node;      
         }
-        return x;
+        return newHead;
     }
 }
