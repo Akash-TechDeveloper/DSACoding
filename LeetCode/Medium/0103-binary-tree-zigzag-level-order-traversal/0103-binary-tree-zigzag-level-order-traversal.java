@@ -17,13 +17,13 @@ class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         Queue<TreeNode>  q = new LinkedList<>();
         List<List<Integer>> result = new ArrayList<>();
+        List<Integer> level = new ArrayList<>();
         if(root==null) return result;
         q.offer(root);
         boolean odd = true;
        while (!q.isEmpty()) {
             int levelSize = q.size();
-            List<Integer> level = new ArrayList<>();
-            
+            level = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
                 TreeNode node = q.poll();
                 if(odd) level.add(node.val);
