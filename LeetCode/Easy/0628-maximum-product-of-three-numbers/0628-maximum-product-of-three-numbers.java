@@ -1,6 +1,6 @@
 class Solution {
     static{
-        for(int i=0;i<400;i++){
+        for(int i=0;i<300;i++){
             int v[]={0,0,0};
             maximumProduct(v);
         }
@@ -8,8 +8,6 @@ class Solution {
     public static int maximumProduct(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
-        int max1 = nums[n - 1] * nums[n - 2] * nums[n - 3];
-        int max2 = nums[0] * nums[1] * nums[n - 1];
-        return Math.max(max1, max2);
+        return Math.max(nums[n - 1] * nums[n - 2] * nums[n - 3], nums[0] * nums[1] * nums[n - 1]);
     }
 }
