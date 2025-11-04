@@ -1,34 +1,32 @@
 class Solution {
+    LinkedHashMap<Integer, Integer> hm ;
     public int[] findXSum(int[] nums, int k, int x) {
-        Map<Integer,Integer> map = new HashMap<>();
-        //ArrayList<Integer> list = new ArrayList<>();
-        int result[] = new int [nums.length-k+1];
-        int i=0;
-        int y=0;
-        for(int j=0;j<nums.length;j++){
-            map.put(nums[j],map.getOrDefault(nums[j],0)+1);
-            while (i<j && (j - i + 1) > k) {
-                map.put(nums[i], map.get(nums[i]) - 1);
-                if (map.get(nums[i]) == 0) map.remove(nums[i]);
-                i++;
-            }
-
-            if (j - i + 1 == k) {
-                result[y++] = helperSum(map, x);
-            }
+        int[] res = new int[nums.length-k+1];
+        
+        for(int i =0;i<nums.length-k+1;i++){
+            res[i]=x_sum(x,i,k, nums);
         }
-        return result;
+        return res;
     }
-    private static int helperSum(Map<Integer,Integer> map , int x){
-        PriorityQueue<int[]> q = new PriorityQueue<>((a,b) -> b[0] != a[0] ? b[0] - a[0] : b[1] - a[1]);
-        for(Map.Entry<Integer,Integer> mp : map.entrySet()){
-            q.offer(new int[]{mp.getValue(),mp.getKey()});
+    public int x_sum(int x,int st, int ed, int[] nums){
+        hm = new LinkedHashMap<>();
+        for(int i =st; i<ed+st;i++){
+            hm.put(nums[i],hm.getOrDefault(nums[i],0)+1);
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> 
+            a[0] != b[0] ? b[0] - a[0] : b[1] - a[1]
+        );   
+        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+            pq.offer(new int[]{entry.getValue(), entry.getKey()});
         }
         int sum = 0;
-        while ( x-->0 && !q.isEmpty()) {
-            int[] top = q.poll();
+        int count = 0;
+        while (count < x && !pq.isEmpty()) {
+            int[] top = pq.poll();
             sum += top[0] * top[1];
+            count++;
         }
+        
         return sum;
     }
 }
