@@ -20,7 +20,6 @@ class Solution {
                 }
             }
         }
-        if(ans == Integer.MAX_VALUE)  return -1;
         return ans+n-1;
     }
     private static int gcd(int a , int b){
