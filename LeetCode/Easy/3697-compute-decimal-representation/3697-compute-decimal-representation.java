@@ -11,8 +11,6 @@ class Solution {
         }
         int[] result = new int[i];
         for (int j = 0; j < i; j++) result[j] = arr[i-1-j];
-        
-
         return result;
     }
 }
